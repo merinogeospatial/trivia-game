@@ -1,0 +1,16 @@
+body {
+    font-family: 'Oswald', sans-serif;
+}
+
+.row {
+    border: red 2px dashed;
+}
+
+.col-9,
+.col-4 {
+    border: green solid 2px;
+}
+
+.container-fluid {
+    border: purple 3pt solid;
+}
