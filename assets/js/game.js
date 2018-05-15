@@ -51,9 +51,10 @@ var userAnswer;
 function decrementGame() {
     $('#countdown').text(count);
     count--;
-        if (count < 1) {
-            clearInterval(timer)
-            console.log("Time's up!")
+        if (count === 0) {
+            timeUp();
+            clearInterval(timer);
+            console.log("Time's up!");
         }
     }
 
@@ -67,11 +68,12 @@ function startClock() {
 // Brings the count down from 5 to 0
 function decrementResult() {
     $('#countdown').text(resultCount); // make a countdown div to next question
-    resultCount--;
-    if (resultCount < 1) {
+   
+    if (resultCount === 0) {
         clearInterval(resultTimer);
-        // start next question here
+        displayQuestions();
     }
+    resultCount--;
 }
 
 // Initializes countdown on results page to next question
@@ -98,8 +100,15 @@ function answerWrong() {
 
 }
 
+function timeUp () {
+    $('#results').html('<h1> Time is up! The answer was: ' + trivia.answer[index] + "</h1>");
+    wrongAnswers++;
+    resultClock();
+    clearInterval(timer);
+}
+
 function displayQuestions() {
-    
+    // startClock();
     $('#question').text(trivia.question[index]);
     $('#answer-1').text(trivia.a1[index]);
     $('#answer-2').text(trivia.a2[index]);
@@ -122,12 +131,8 @@ function gameOn() {
     $('#answer-3').text(trivia.a3[0]);
     $('#answer-4').text(trivia.a4[0]);
     index = 1;
-    setTimeout(displayQuestions,10000);
-    setTimeout(startClock,10000)
-
-}
-
-$('#start').click(gameOn);
+    // setTimeout(displayQuestions,10000);
+    // setTimeout(startClock,10000)
 
 
 $('#answer-1, #answer-2, #answer-3, #answer-4').click(function() {
@@ -140,6 +145,12 @@ $('#answer-1, #answer-2, #answer-3, #answer-4').click(function() {
         answerWrong();
     }
 })
+
+}
+
+
+$('#start').click(gameOn);
+
 
 
 if (userAnswer === trivia.answer[index]) {
