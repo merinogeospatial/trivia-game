@@ -42,8 +42,10 @@ trivia = {
 
 let index = 0;
 var inRange = true;
+let correctAnswers = 0;
+let wrongAnswers = 0;
 var userAnswer;
-var correctAnswer;
+
 
 // Brings the count down from 10 to 0
 function decrementGame() {
@@ -64,28 +66,37 @@ function startClock() {
 
 // Brings the count down from 5 to 0
 function decrementResult() {
+    $('#countdown').text(resultCount); // make a countdown div to next question
     resultCount--;
-    $('#question').text(resultCount); // make a countdown div to next question
-    if (resultCount === 0) {
-        clearInterval(resultTimer)
+    if (resultCount < 1) {
+        clearInterval(resultTimer);
         // start next question here
     }
 }
 
 // Initializes countdown on results page to next question
 function resultClock() {
-    if (resultCount != 0){
+    resultCount = 5;
     resultTimer = setInterval(decrementResult,1000);
-    }
+    
 }
 
 // If user gets answer correct
 function answerCorrect() {
-    $('#results').html('<h1> Nice work! The answer was: ', trivia.answer[i]);
+    $('#results').html('<h1> Nice work! The answer was: ' + trivia.answer[index] + "</h1>");
+    correctAnswers++;
+    resultClock();
+    clearInterval(timer);
+
 }
 
+function answerWrong() {
+    $('#results').html('<h1> Nice try! The answer was: ' + trivia.answer[index] + "</h1>");
+    wrongAnswers++;
+    resultClock();
+    clearInterval(timer);
 
-
+}
 
 function displayQuestions() {
     
@@ -118,9 +129,22 @@ function gameOn() {
 
 $('#start').click(gameOn);
 
-$('#answer-1, #answer-2, #answer-3, answer-4').click(function(){
+
+$('#answer-1, #answer-2, #answer-3, #answer-4').click(function() {
     userAnswer = $(this).text();
     //if user answer does not match answer in index, trigger wrong, else win
+    if (userAnswer === trivia.answer[index]) {
+        answerCorrect();
+    }
+    else {
+        answerWrong();
+    }
 })
+
+
+if (userAnswer === trivia.answer[index]) {
+    answerCorrect();
+}
+
 
 
