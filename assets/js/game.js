@@ -6,7 +6,8 @@ trivia = {
         "Hug it out, bitch. That is what men say to each other, after a fight. They hug it out, and doing so, the just... let it go. And walk away. And they're done. Not a good idea to say that to a woman however. I have found. It doesn't translate.",
         "Every little boy fantasizes about his fairy-tale wedding.",
         'No, I disagree. “R” is one of the most menacing of sounds. That’s why they call it murder not ‘muckduck’.',
-        "(To Michael) Wow. How many Filet-O-Fish sandwiches did you eat? "
+        "(To Michael) Wow. How many Filet-O-Fish sandwiches did you eat?",
+        'And I would text back, "BTB": bring that booty.'
 
     ],
     a1: [
@@ -16,7 +17,8 @@ trivia = {
         "Darryl",
         "Andy",
         "Phyllis",
-        "Ryan"
+        "Ryan",
+        "Michael"
     ],
     a2: [
         "Dwight",
@@ -25,7 +27,8 @@ trivia = {
         "Ryan",
         "Michael",
         "Jan",
-        "Pam"
+        "Pam",
+        "Darryl"
     ],
     a3: [
         "Creed",
@@ -34,7 +37,8 @@ trivia = {
         "Michael",
         "Jim",
         "Jim",
-        "David Wallace"
+        "David Wallace",
+        "Kevin"
     ],
     a4: [
         "Michael",
@@ -43,7 +47,8 @@ trivia = {
         "Creed",
         "Todd Packer",
         "Dwight",
-        "Jim"
+        "Jim",
+        "Todd Packer"
     ],
     answer: [
         "Dwight",
