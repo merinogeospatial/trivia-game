@@ -87,6 +87,7 @@ function resultClock() {
 function answerCorrect() {
     $('#results').html('<h1> Nice work! The answer was: ' + trivia.answer[index] + "</h1>");
     correctAnswers++;
+    index++;
     resultClock();
     clearInterval(timer);
 
@@ -95,6 +96,7 @@ function answerCorrect() {
 function answerWrong() {
     $('#results').html('<h1> Nice try! The answer was: ' + trivia.answer[index] + "</h1>");
     wrongAnswers++;
+    index++;
     resultClock();
     clearInterval(timer);
 
@@ -103,53 +105,46 @@ function answerWrong() {
 function timeUp () {
     $('#results').html('<h1> Time is up! The answer was: ' + trivia.answer[index] + "</h1>");
     wrongAnswers++;
+    index++;
     resultClock();
     clearInterval(timer);
 }
 
 function displayQuestions() {
-    // startClock();
-    $('#question').text(trivia.question[index]);
-    $('#answer-1').text(trivia.a1[index]);
-    $('#answer-2').text(trivia.a2[index]);
-    $('#answer-3').text(trivia.a3[index]);
-    $('#answer-4').text(trivia.a4[index]);
-    index++;
+    startClock();
+
+    var display =  ` <div class="col-9 text-center ">
+                    <h2 id="question">${trivia.question[index]}</h2>
+                    <br>
+                    <button id="answer-1">${trivia.a1[index]}</button>
+                    <br>
+                    <button id="answer-2">${trivia.a2[index]}</button>
+                    <br>
+                    <button id="answer-3">${trivia.a3[index]}</button>
+                    <br>
+                    <button id="answer-4">${trivia.a4[index]}</button>
+                    <br>`
+
+    $('#results').html(display);
+
+    $('#answer-1, #answer-2, #answer-3, #answer-4').click(function() {
+        userAnswer = $(this).text();
+        //if user answer does not match answer in index, trigger wrong, else win
+        if (userAnswer === trivia.answer[index]) {
+            answerCorrect();
+        }
+        else {
+            answerWrong();
+        }
+    })
 
     if (index >= trivia.question.length) {
         inRange = false;
     }
-}
-
-function gameOn() {
-
-    $('#start').remove();
-    startClock();
-    $('#question').text(trivia.question[0]);
-    $('#answer-1').text(trivia.a1[0]);
-    $('#answer-2').text(trivia.a2[0]);
-    $('#answer-3').text(trivia.a3[0]);
-    $('#answer-4').text(trivia.a4[0]);
-    index = 1;
-    // setTimeout(displayQuestions,10000);
-    // setTimeout(startClock,10000)
-
-
-$('#answer-1, #answer-2, #answer-3, #answer-4').click(function() {
-    userAnswer = $(this).text();
-    //if user answer does not match answer in index, trigger wrong, else win
-    if (userAnswer === trivia.answer[index]) {
-        answerCorrect();
-    }
-    else {
-        answerWrong();
-    }
-})
 
 }
 
-
-$('#start').click(gameOn);
+$('#start').click(displayQuestions);
 
 
 
@@ -159,3 +154,6 @@ if (userAnswer === trivia.answer[index]) {
 
 
 
+// in the display function, change it from text to html, that way the html being overwritten wouldn't
+//be a problem OR
+// only use text method in this jQuery
