@@ -2,35 +2,57 @@ trivia = {
     question: [
         "There's too many people on this Earth. We need a new plague.",
         "I really should have a Tweeter account.",
-        "I feel God in this Chili’s tonight."
+        "I feel God in this Chili’s tonight.",
+        "Hug it out, bitch. That is what men say to each other, after a fight. They hug it out, and doing so, the just... let it go. And walk away. And they're done. Not a good idea to say that to a woman however. I have found. It doesn't translate.",
+        "Every little boy fantasizes about his fairy-tale wedding.",
+        'No, I disagree. “R” is one of the most menacing of sounds. That’s why they call it murder not ‘muckduck’.',
+        "(To Michael) Wow. How many Filet-O-Fish sandwiches did you eat? "
 
     ],
     a1: [
         "Angela",
         "Andy",
-        "Michael"
-
+        "Michael",
+        "Darryl",
+        "Andy",
+        "Phyllis",
+        "Ryan"
     ],
     a2: [
         "Dwight",
         "Michael",
-        "Creed"
+        "Creed",
+        "Ryan",
+        "Michael",
+        "Jan",
+        "Pam"
     ],
     a3: [
         "Creed",
         "Kevin",
-        "Angela"
-
+        "Angela",
+        "Michael",
+        "Jim",
+        "Jim",
+        "David Wallace"
     ],
     a4: [
         "Michael",
         "Dwight",
-        "Pam"
+        "Pam",
+        "Creed",
+        "Todd Packer",
+        "Dwight",
+        "Jim"
     ],
     answer: [
         "Dwight",
         "Dwight",
-        "Pam"
+        "Pam",
+        "Michael",
+        "Andy",
+        "Dwight",
+        "Ryan"
     ],
     img:[]
 }
@@ -50,7 +72,7 @@ var userAnswer;
 
 // Brings the count down from 10 to 0
 function decrementGame() {
-    $('#countdown').text(count);
+    $('#countdown').text('Time remaining: '+  count);
     count--;
         if (count === 0) {
             timeUp();
@@ -68,7 +90,7 @@ function startClock() {
 
 // Brings the count down from 5 to 0
 function decrementResult() {
-    $('#countdown').text(resultCount); // make a countdown div to next question
+    $('#countdown').text('Time till next question: ' + resultCount); // make a countdown div to next question
    
     if (resultCount === 0) {
         clearInterval(resultTimer);
@@ -114,7 +136,7 @@ function timeUp () {
 function endResults() {
     var display =   `
                     <div class="col-9 text-center">
-                    <h2> Number of correct answers: ${correctAnswers}</h2> <br>
+                    <h2 class="mt-3"> Number of correct answers: ${correctAnswers}</h2> <br>
                     <h2> Number of wrong answers: ${wrongAnswers}</h2> <br>
                     <h2> Numer of time ups: ${timeUps}</h2> <br>
                     </div>
@@ -171,9 +193,3 @@ $('#start').click(displayQuestions);
 if (userAnswer === trivia.answer[index]) {
     answerCorrect();
 }
-
-
-
-// in the display function, change it from text to html, that way the html being overwritten wouldn't
-//be a problem OR
-// only use text method in this jQuery

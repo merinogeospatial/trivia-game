@@ -2,15 +2,25 @@ body {
     font-family: 'Oswald', sans-serif;
 }
 
-.row {
-    border: red 2px dashed;
+.header {
+    position: relative;
 }
 
-.col-9,
-.col-4 {
-    border: green solid 2px;
+#countdown {
+    position: fixed;
+    left: 2%;
+    top: 2%;
+    color: gold;
+    font-size: 20pt;
+    text-shadow: 2px 2px 3px black;
 }
 
-.container-fluid {
-    border: purple 3pt solid;
+#start {
+    color:white;
+    font-size: 22pt;
+}
+
+.btn:hover,
+#start:hover {
+color:gold;
 }
