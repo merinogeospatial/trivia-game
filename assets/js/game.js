@@ -44,6 +44,7 @@ let index = 0;
 var inRange = true;
 let correctAnswers = 0;
 let wrongAnswers = 0;
+let timeUps = 0;
 var userAnswer;
 
 
@@ -104,26 +105,45 @@ function answerWrong() {
 
 function timeUp () {
     $('#results').html('<h1> Time is up! The answer was: ' + trivia.answer[index] + "</h1>");
-    wrongAnswers++;
+    timeUps++;
     index++;
     resultClock();
     clearInterval(timer);
 }
 
+function endResults() {
+    var display =   `
+                    <div class="col-9 text-center">
+                    <h2> Number of correct answers: ${correctAnswers}</h2> <br>
+                    <h2> Number of wrong answers: ${wrongAnswers}</h2> <br>
+                    <h2> Numer of time ups: ${timeUps}</h2> <br>
+                    </div>
+                    `
+
+$('#results').html(display);
+}
+
+
 function displayQuestions() {
+
+    if (index === trivia.question.length){
+        endResults();
+    }
+    else {
     startClock();
+
 
     var display =  ` <div class="col-9 text-center ">
                     <h2 id="question">${trivia.question[index]}</h2>
-                    <br>
-                    <button id="answer-1">${trivia.a1[index]}</button>
-                    <br>
-                    <button id="answer-2">${trivia.a2[index]}</button>
-                    <br>
-                    <button id="answer-3">${trivia.a3[index]}</button>
-                    <br>
-                    <button id="answer-4">${trivia.a4[index]}</button>
-                    <br>`
+                    
+                    <button id="answer-1" class="my-3">${trivia.a1[index]}</button>
+                    
+                    <button id="answer-2" class="my-3">${trivia.a2[index]}</button>
+                    
+                    <button id="answer-3" class="my-3">${trivia.a3[index]}</button>
+                    
+                    <button id="answer-4" class="my-3">${trivia.a4[index]}</button>
+                    `
 
     $('#results').html(display);
 
@@ -138,10 +158,10 @@ function displayQuestions() {
         }
     })
 
-    if (index >= trivia.question.length) {
+        if (index >= trivia.question.length) {
         inRange = false;
+        }
     }
-
 }
 
 $('#start').click(displayQuestions);
