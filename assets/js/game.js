@@ -136,13 +136,13 @@ function displayQuestions() {
     var display =  ` <div class="col-9 text-center ">
                     <h2 id="question">${trivia.question[index]}</h2>
                     
-                    <button id="answer-1" class="my-3">${trivia.a1[index]}</button>
+                    <button id="answer-1" class="btn btn-dark btn-lg m-3">${trivia.a1[index]}</button>
                     
-                    <button id="answer-2" class="my-3">${trivia.a2[index]}</button>
+                    <button id="answer-2" class="btn btn-dark btn-lg m-3">${trivia.a2[index]}</button>
                     
-                    <button id="answer-3" class="my-3">${trivia.a3[index]}</button>
+                    <button id="answer-3" class="btn btn-dark btn-lg m-3">${trivia.a3[index]}</button>
                     
-                    <button id="answer-4" class="my-3">${trivia.a4[index]}</button>
+                    <button id="answer-4" class="btn btn-dark btn-lg m-3">${trivia.a4[index]}</button>
                     `
 
     $('#results').html(display);
