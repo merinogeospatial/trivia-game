@@ -7,7 +7,10 @@ trivia = {
         "Every little boy fantasizes about his fairy-tale wedding.",
         'No, I disagree. “R” is one of the most menacing of sounds. That’s why they call it murder not ‘muckduck’.',
         "(To Michael) Wow. How many Filet-O-Fish sandwiches did you eat?",
-        'And I would text back, "BTB": bring that booty.'
+        'And I would text back, "BTB": bring that booty.',
+        "I am beyonce, always.",
+        "But on Pretzel Day? Well, I like Pretzel Day.",
+        "Well you take the first letter of each name, assign it a number, add 'em all up, and shove it up your butt!"
 
     ],
     a1: [
@@ -18,7 +21,10 @@ trivia = {
         "Andy",
         "Phyllis",
         "Ryan",
-        "Michael"
+        "Michael",
+        "Michael",
+        "Michael",
+        "Dwight"
     ],
     a2: [
         "Dwight",
@@ -28,7 +34,10 @@ trivia = {
         "Michael",
         "Jan",
         "Pam",
-        "Darryl"
+        "Darryl",
+        "Kelly",
+        "Stanley",
+        "Kevin"
     ],
     a3: [
         "Creed",
@@ -38,7 +47,10 @@ trivia = {
         "Jim",
         "Jim",
         "David Wallace",
-        "Kevin"
+        "Kevin",
+        "Oscar",
+        "Kevin",
+        "Stanley"
     ],
     a4: [
         "Michael",
@@ -48,7 +60,10 @@ trivia = {
         "Todd Packer",
         "Dwight",
         "Jim",
-        "Todd Packer"
+        "Todd Packer",
+        "Meredith",
+        "Toby",
+        "Andy"
     ],
     answer: [
         "Dwight",
@@ -57,13 +72,13 @@ trivia = {
         "Michael",
         "Andy",
         "Dwight",
-        "Ryan"
+        "Ryan",
+        "Michael",
+        "Stanley",
+        "Stanley"
     ],
     img:[]
 }
-
-
-
 
 
 
