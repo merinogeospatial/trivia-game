@@ -78,7 +78,11 @@ trivia = {
         "Stanley",
         "Stanley"
     ],
-    img:[]
+    img:[
+        'https://media.giphy.com/media/8VrtCswiLDNnO/giphy.gif',
+        'https://media.giphy.com/media/12XMGIWtrHBl5e/giphy.gif',
+        'https://media.giphy.com/media/SW3PNayoSGXao/giphy.gif',
+        ]
 }
 
 
@@ -104,7 +108,7 @@ function decrementGame() {
 
 // Initializes countdown for questions
 function startClock() {
-    count = 10;
+    count = 20;
     timer = setInterval(decrementGame,1000);
     
 }
@@ -122,14 +126,18 @@ function decrementResult() {
 
 // Initializes countdown on results page to next question
 function resultClock() {
-    resultCount = 5;
+    resultCount = 10;
     resultTimer = setInterval(decrementResult,1000);
     
 }
 
 // If user gets answer correct
 function answerCorrect() {
+    newImg = $('<img>');
+    newImg.attr('src',trivia.img[0]);
     $('#results').html('<h1> Nice work! The answer was: ' + trivia.answer[index] + "</h1>");
+    $('.gif').append(newImg);
+
     correctAnswers++;
     index++;
     resultClock();
@@ -138,7 +146,11 @@ function answerCorrect() {
 }
 
 function answerWrong() {
+    newImg = $('<img>');
+    newImg.attr('src',trivia.img[1]);
     $('#results').html('<h1> Nice try! The answer was: ' + trivia.answer[index] + "</h1>");
+    $('.gif').append(newImg);
+
     wrongAnswers++;
     index++;
     resultClock();
@@ -147,7 +159,11 @@ function answerWrong() {
 }
 
 function timeUp () {
+    newImg = $('<img>');
+    newImg.attr('src',trivia.img[2]);
     $('#results').html('<h1> Time is up! The answer was: ' + trivia.answer[index] + "</h1>");
+    $('.gif').append(newImg);
+
     timeUps++;
     index++;
     resultClock();
@@ -168,6 +184,7 @@ $('#results').html(display);
 
 
 function displayQuestions() {
+    $('.gif').empty();
 
     if (index === trivia.question.length){
         endResults();
