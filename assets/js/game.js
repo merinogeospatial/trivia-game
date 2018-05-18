@@ -108,7 +108,7 @@ function decrementGame() {
 
 // Initializes countdown for questions
 function startClock() {
-    count = 20;
+    count = 15;
     timer = setInterval(decrementGame,1000);
     
 }
