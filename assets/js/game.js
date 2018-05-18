@@ -73,6 +73,7 @@ trivia = {
         "Andy",
         "Dwight",
         "Ryan",
+        "Darryl",
         "Michael",
         "Stanley",
         "Stanley"
