@@ -10,7 +10,8 @@ trivia = {
         'And I would text back, "BTB": bring that booty.',
         "I am beyonce, always.",
         "But on Pretzel Day? Well, I like Pretzel Day.",
-        "Well you take the first letter of each name, assign it a number, add 'em all up, and shove it up your butt!"
+        "Well you take the first letter of each name, assign it a number, add 'em all up, and shove it up your butt!",
+        "If I had a gun with two bullets and I was in a room with Hitler, Bin Laden, and Toby, I would shoot Toby twice."
 
     ],
     a1: [
@@ -24,6 +25,7 @@ trivia = {
         "Michael",
         "Michael",
         "Michael",
+        "Dwight",
         "Dwight"
     ],
     a2: [
@@ -37,7 +39,8 @@ trivia = {
         "Darryl",
         "Kelly",
         "Stanley",
-        "Kevin"
+        "Kevin",
+        "Michael"
     ],
     a3: [
         "Creed",
@@ -50,7 +53,8 @@ trivia = {
         "Kevin",
         "Oscar",
         "Kevin",
-        "Stanley"
+        "Stanley",
+        "Creed"
     ],
     a4: [
         "Michael",
@@ -63,7 +67,8 @@ trivia = {
         "Todd Packer",
         "Meredith",
         "Toby",
-        "Andy"
+        "Andy",
+        "Roy"
     ],
     answer: [
         "Dwight",
@@ -76,7 +81,8 @@ trivia = {
         "Darryl",
         "Michael",
         "Stanley",
-        "Stanley"
+        "Stanley",
+        "Michael"
     ],
     img:[
         'https://media.giphy.com/media/8VrtCswiLDNnO/giphy.gif',
@@ -178,10 +184,20 @@ function endResults() {
                     <h2> Numer of time ups: ${timeUps}</h2> <br>
                     </div>
                     `
+    newButton = $('<button>').text("Start Over?");
+    $('.gif').append(newButton);
+    $(newButton).on ('click', restartGame);
 
 $('#results').html(display);
 }
 
+function restartGame() {
+    correctAnswers = 0;
+    wrongAnswers = 0;
+    timeUps = 0;
+    index = 0;
+    displayQuestions();
+}
 
 function displayQuestions() {
     $('.gif').empty();
